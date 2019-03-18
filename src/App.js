@@ -8,7 +8,7 @@ export default class App extends React.Component {
     peopleInSpace: []
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.getAstronauts();
   }
 
@@ -18,15 +18,13 @@ export default class App extends React.Component {
       .then(({ people }) => this.setState({ peopleInSpace: people }));
   };
 
-  //   showAstronauts = () => {
-  //     this.state.peopleInSpace.map(person => <li>{person.name}</li>));
-  //   };
+  showAstronauts = () => {
+    return this.state.peopleInSpace.map((person, id) => (
+      <h1 key={id}>{person.name}</h1>
+    ));
+  };
 
   render() {
-    return (
-      <div>
-        <h1>{this.state.peopleInSpace.map(person => person.name)}</h1>
-      </div>
-    );
+    return <div>{this.showAstronauts()}</div>;
   }
 }

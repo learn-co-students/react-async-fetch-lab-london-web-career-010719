@@ -10,24 +10,17 @@ export default class App extends React.Component {
 
   componentWillMount() {
     this.getAstronauts();
-    this.showAstronauts();
   }
 
   getAstronauts = () => {
     fetch(URL)
       .then(resp => resp.json())
-      .then(astronauts => this.setState({ peopleInSpace: astronauts }));
+      .then(astronauts => this.setState({ astronauts }));
   };
 
-  showAstronauts = () => {};
+  //   showAstronauts = () => {};
 
   render() {
-    return (
-      <ul>
-        {this.state.peopleInSpace.map((person, id) => (
-          <h1 key={id}>{person.name}</h1>
-        ))}
-      </ul>
-    );
+    return <ul />;
   }
 }

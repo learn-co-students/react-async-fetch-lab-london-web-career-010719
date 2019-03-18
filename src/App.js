@@ -15,12 +15,18 @@ export default class App extends React.Component {
   getAstronauts = () => {
     fetch(URL)
       .then(resp => resp.json())
-      .then(astronauts => this.setState({ astronauts }));
+      .then(({ people }) => this.setState({ peopleInSpace: people }));
   };
 
-  //   showAstronauts = () => {};
+  //   showAstronauts = () => {
+  //     this.state.peopleInSpace.map(person => <li>{person.name}</li>));
+  //   };
 
   render() {
-    return <ul />;
+    return (
+      <div>
+        <h1>{this.state.peopleInSpace.map(person => person.name)}</h1>
+      </div>
+    );
   }
 }

@@ -24,7 +24,9 @@ export default class App extends React.Component {
   render() {
     return (
       <ul>
-        <li>{this.showAstronauts()}</li>
+        {this.state.peopleInSpace.map((person, id) => (
+          <h1 key={id}>{person.name}</h1>
+        ))}
       </ul>
     );
   }
